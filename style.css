@@ -1,0 +1,117 @@
+:root {
+    --main-color: #6c112f;
+    --bg-color: #fefbf1;
+    --accent-color: #fef4dd;
+}
+
+@font-face {
+    font-family: "Oceanwide Semibold";
+    src: url("assets/Oceanwide-Semibold.otf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: var(--accent-color);
+    position: sticky;
+    top: 0;
+}
+
+#logo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: var(--main-color);
+}
+
+#logo-img {
+    margin: 10px;
+    width: 75px;
+    height: 75px;
+}
+
+#logo-title {
+    font-size: 1.5rem;
+    font-family: "Oceanwide Semibold", serif;
+}
+
+#nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.nav-item {
+    text-decoration: none;
+    margin: 35px;
+    font-family: "Oceanwide Semibold", serif;
+    font-size: 1.2rem;
+}
+
+#banner {
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}
+
+#banner-img {
+    width: 100%;
+    display: block;
+}
+
+#banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner-content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#banner-logo {
+    filter: brightness(0) invert(1);
+    margin: 20px;
+}
+
+#banner-text {
+    color: white;
+    font-size: 4rem;
+    font-family: "Oceanwide Semibold", serif;
+}
+
+#banner-title {
+    margin: 0;
+}
+
+#banner-subtitle {
+    margin: 0;
+    font-size: 1.5rem;
+    color: lightgrey;
+}
+
+main {
+    background-color: var(--bg-color);
+    height: 100%;
+}
