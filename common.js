@@ -1,4 +1,4 @@
-const mainPage = "/GCR-Site/";
+const mainPage = "/GreatCentralRail/";
 const subpage = window.location.pathname.split("/")[2];
 
 const headerHtml = `
