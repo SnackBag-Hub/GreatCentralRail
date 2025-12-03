@@ -11,7 +11,7 @@ const headerHtml = `
     <div id="nav-section">
         <a id="news" class="nav-item">News</a>
         <a id="projects" class="nav-item">Projects</a>
-        <a id="operators" class="nav-item">Operators</a>
+        <a id="data" class="nav-item">Data</a>
         <a id="planning" class="nav-item">Planning</a>
     </div>
 </header>

@@ -4,11 +4,6 @@
     --accent-color: #fef4dd;
 }
 
-@font-face {
-    font-family: "Oceanwide Semibold";
-    src: url("assets/Oceanwide-Semibold.otf");
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -42,6 +37,10 @@ header {
     transform: skewX(-20deg);
 }
 
+#logo-div:hover::before {
+    animation: shine 0.6s ease-in-out;
+}
+
 #logo-div {
     display: flex;
     align-items: center;
@@ -56,10 +55,6 @@ header {
 
 #logo-div:hover {
     filter: brightness(1.3);
-}
-
-#logo-div:hover::before {
-    animation: shine 0.6s ease-in-out;
 }
 
 @keyframes shine {
@@ -79,8 +74,8 @@ header {
 
 #logo-title {
     font-size: 1rem;
-    padding-top: 4px;
-    font-family: "Oceanwide Semibold", serif;
+    font-family: "Outfit", serif;
+    font-weight: 550;
 }
 
 #nav-section {
@@ -93,8 +88,9 @@ header {
 .nav-item {
     text-decoration: none;
     margin: 35px;
-    font-family: "Oceanwide Semibold", serif;
+    font-family: "Outfit", serif;
     font-size: 1.2rem;
+    font-weight: 550;
     cursor: pointer;
     color: #333333;
     transition: transform 0.2s ease-in-out;
@@ -151,7 +147,7 @@ header {
 #banner-text {
     color: white;
     font-size: 4rem;
-    font-family: "Oceanwide Semibold", serif;
+    font-family: "Outfit", serif;
 }
 
 #banner-title {
@@ -213,4 +209,74 @@ footer {
 
 #footer-logo #logo-title {
     font-size: 1.2rem;
+}
+
+#articles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    font-family: "Outfit", serif;
+}
+
+.article {
+    height: 307px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.article-image {
+    border-radius: 16px;
+}
+
+.article-link {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border-radius: 12px;
+    padding: 12px 16px;
+    transition: all 0.2s ease-in-out;
+}
+
+.article-link:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1) drop-shadow(0 0 10px rgba(0, 0, 0, 0.27));
+}
+
+.article-side {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 48px;
+    height: 179px   ;
+}
+
+.article-title {
+    font-size: 2.1rem;
+    margin: 0;
+}
+
+.article-summary {
+    margin-top: 12px;
+    filter: opacity(0.55);
+}
+
+.article-footer {
+    margin-top: 48px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.article-date {
+    margin: 0;
+    filter: opacity(0.55);
 }
