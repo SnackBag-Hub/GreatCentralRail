@@ -23,6 +23,23 @@ header {
     background-color: var(--accent-color);
     position: sticky;
     top: 0;
+    height: 62px;
+}
+
+#logo-div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
 }
 
 #logo-div {
@@ -31,16 +48,38 @@ header {
     justify-content: center;
     flex-direction: row;
     color: var(--main-color);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+#logo-div:hover {
+    filter: brightness(1.3);
+}
+
+#logo-div:hover::before {
+    animation: shine 0.6s ease-in-out;
+}
+
+@keyframes shine {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 150%;
+    }
 }
 
 #logo-img {
     margin: 10px;
-    width: 75px;
-    height: 75px;
+    width: 33px;
+    height: 33px;
 }
 
 #logo-title {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding-top: 4px;
     font-family: "Oceanwide Semibold", serif;
 }
 
@@ -56,6 +95,20 @@ header {
     margin: 35px;
     font-family: "Oceanwide Semibold", serif;
     font-size: 1.2rem;
+    cursor: pointer;
+    color: #333333;
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.nav-item.underline {
+    text-decoration: underline;
+    color: black;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+    color: black;
 }
 
 #banner {
@@ -114,4 +167,50 @@ header {
 main {
     background-color: var(--bg-color);
     height: 100%;
+    transition: all 0.5s ease-in-out;
+    animation: appear 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+main img {
+    width: 585px;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+footer {
+    height: 171px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(0) opacity(0.3);
+}
+
+#footer-logo #logo-img {
+    height: 43px;
+    width: auto;
+}
+
+#footer-logo #logo-title {
+    font-size: 1.2rem;
 }
