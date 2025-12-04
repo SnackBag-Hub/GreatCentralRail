@@ -26,29 +26,35 @@ const articleHtml = article => `
 </div>
 `;
 
-fetch(sheetsLink)
-    .then(res => res.text())
-    .then(data => {
-        articles = data.split("\n").map(row => row.split("\t"));
-        articles.shift();
+if (document.getElementById("articles")) {
+    fetch(sheetsLink)
+        .then(res => res.text())
+        .then(data => {
+            articles = data.split("\n").map(row => row.split("\t"));
+            articles.shift();
 
-        const grouped = {};
-        for (let article of articles) {
-            const timestamp = article[0];
-            const dateObj = new Date(timestamp.replace(/(\d+)\/(\d+)\/(\d+)/, '$2/$1/$3'));
-            const dateStr = dateObj.toLocaleDateString();
-            const timeStr = dateObj.toLocaleTimeString("en-GB");
-            article[0] = `${dateStr} ${timeStr}`;
+            const grouped = {};
+            for (let article of articles) {
+                const timestamp = article[0];
+                const dateObj = new Date(timestamp.replace(/(\d+)\/(\d+)\/(\d+)/, '$2/$1/$3'));
+                const dateStr = dateObj.toLocaleDateString();
+                const timeStr = dateObj.toLocaleTimeString("en-GB");
+                article[0] = `${dateStr} ${timeStr}`;
 
-            if (!grouped[dateStr]) grouped[dateStr] = [];
-            grouped[dateStr].push(article);
-        }
-
-        const container = document.getElementById("articles");
-        container.innerHTML = "";
-        for (let date in grouped) {
-            for (let article of grouped[date]) {
-                container.innerHTML += articleHtml(article);
+                if (!grouped[dateStr]) grouped[dateStr] = [];
+                grouped[dateStr].push(article);
             }
-        }
-    });
+
+            const container = document.getElementById("articles");
+            let articleCount = 0;
+            container.innerHTML = "";
+            for (let date in grouped) {
+                for (let article of grouped[date]) {
+                    if (!window.location.pathname.split("/")[2] && articleCount >= 1) break;
+
+                    container.innerHTML += articleHtml(article);
+                    articleCount++;
+                }
+            }
+        });
+}

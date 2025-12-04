@@ -164,10 +164,11 @@ main {
     background-color: var(--bg-color);
     height: 100%;
     transition: all 0.5s ease-in-out;
-    animation: appear 0.5s ease-in-out;
+    animation: appear 1s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     padding: 40px;
 }
 
@@ -228,6 +229,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    margin-bottom: 48px;
 }
 
 .article-image {
