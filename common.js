@@ -1,10 +1,12 @@
-const mainPage = "/GreatCentralRail/";
+const isProduction = location.hostname.endsWith("github.io");
+const mainPage = "/GreatCentralRail";
+
 const subpage = window.location.pathname.split("/")[2];
 
 const headerHtml = `
 <header>
     <a id="logo-div" href="${mainPage}">
-        <img id="logo-img" src="assets/logos/logo.png" alt="logo">
+        <img id="logo-img" src="${isProduction ? mainPage : ""}/assets/logos/logo.png" alt="logo">
         <p id="logo-title" >Great Central Rail</p>
     </a>
 
@@ -20,7 +22,7 @@ const headerHtml = `
 const footerHtml = `
 <footer>
     <div id="footer-logo">
-        <img id="logo-img" src="assets/logos/logo.png" alt="logo">
+        <img id="logo-img" src="${isProduction ? mainPage : ""}/assets/logos/logo.png" alt="logo">
         <p id="logo-title" >Great Central Rail</p>
     </div>
 </footer>
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('underline');
         }
         link.addEventListener('click', () => {
-            window.location.href = `${mainPage}${link.id}/`;
+            window.location.href = `${mainPage}/${link.id}/`;
         })
     }
 });
