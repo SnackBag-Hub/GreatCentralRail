@@ -4,7 +4,7 @@ const subpage = window.location.pathname.split("/")[2];
 const headerHtml = `
 <header>
     <a id="logo-div" href="${mainPage}">
-        <img id="logo-img" src="/assets/logos/logo.png" alt="logo">
+        <img id="logo-img" src="assets/logos/logo.png" alt="logo">
         <p id="logo-title" >Great Central Rail</p>
     </a>
 
