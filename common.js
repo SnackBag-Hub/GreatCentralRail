@@ -20,7 +20,7 @@ const headerHtml = `
 const footerHtml = `
 <footer>
     <div id="footer-logo">
-        <img id="logo-img" src="/assets/logos/logo.png" alt="logo">
+        <img id="logo-img" src="assets/logos/logo.png" alt="logo">
         <p id="logo-title" >Great Central Rail</p>
     </div>
 </footer>
