@@ -214,26 +214,29 @@ footer {
 
 #articles {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    align-items: center;
+    padding: 64px 0;
     font-family: "Outfit", serif;
 }
 
 .article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    max-width: 900px;
     height: 307px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    margin-bottom: 48px;
+    margin: 0 auto 48px;
 }
 
 .article-image {
+    width: 320px;
+    height: 180px;
     border-radius: 16px;
+    object-fit: cover;
 }
 
 .article-link {
@@ -256,7 +259,8 @@ footer {
     justify-content: space-between;
     flex-direction: column;
     margin-left: 48px;
-    height: 179px   ;
+    height: 179px;
+    width: 100%;
 }
 
 .article-title {

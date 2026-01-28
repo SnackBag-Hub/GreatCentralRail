@@ -9,6 +9,9 @@ let articles = [];
 [4] Text
 */
 
+const script = document.currentScript;
+const limit = Number(script.dataset.limit) || 0;
+
 const articleHtml = article => `
 <div class="article">
     <img class="article-image" src="${article[3]}" alt="Article Image">
@@ -50,7 +53,7 @@ if (document.getElementById("articles")) {
             container.innerHTML = "";
             for (let date in grouped) {
                 for (let article of grouped[date]) {
-                    if (!window.location.pathname.split("/")[2] && articleCount >= 1) break;
+                    if (limit !== 0 && articleCount >= limit) break;
 
                     container.innerHTML += articleHtml(article);
                     articleCount++;
