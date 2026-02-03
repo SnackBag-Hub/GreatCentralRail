@@ -16,13 +16,13 @@ const headerHtml = `
         <a id="data" class="nav-item">Data</a>
         <a id="planning" class="nav-item">Planning</a>
     </div>
+    
+    <div id="nav-menu">
+        <svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 1.25H27M27 9.75H0M27 18.25H13" stroke="#79354B" stroke-width="2.5"/>
+        </svg>
+    </div>
 </header>
-`
-
-const navMenu = `
-    <svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 1.25H27M27 9.75H0M27 18.25H13" stroke="#79354B" stroke-width="2.5"/>
-    </svg>
 `
 
 const footerHtml = `
@@ -38,14 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.innerHTML = headerHtml + document.body.innerHTML;
     document.body.innerHTML += footerHtml;
 
+    const nav = document.getElementById("nav-section");
+
     for (const link of document.querySelectorAll('.nav-item')) {
         if (link.id === subpage) {
             link.classList.add('underline');
         }
         link.addEventListener('click', () => {
             window.location.href = `${mainPage}/${link.id}/`;
+            nav.classList.remove("open");
         })
     }
+
+    document.getElementById("nav-menu").addEventListener("click", (e) => {
+        e.stopPropagation();
+        nav.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target)) {
+            nav.classList.remove("open");
+        }
+    });
 });
 
 // Smooth Scrolling
