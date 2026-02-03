@@ -19,6 +19,12 @@ const headerHtml = `
 </header>
 `
 
+const navMenu = `
+    <svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 1.25H27M27 9.75H0M27 18.25H13" stroke="#79354B" stroke-width="2.5"/>
+    </svg>
+`
+
 const footerHtml = `
 <footer>
     <div id="footer-logo">
