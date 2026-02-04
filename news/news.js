@@ -3,27 +3,28 @@ let articles = [];
 
 /*
 [0] Timestamp
-[1] Title
-[2] Summary
-[3] Image
-[4] Text
+[1] Unix Timestamp
+[2] Title
+[3] Summary
+[4] Image
+[5] Text
 */
 
 const script = document.currentScript;
 const limit = Number(script.dataset.limit) || 0;
 
 const articleHtml = article => `
-<div class="article">
-    <img class="article-image" src="${article[3]}" alt="Article Image">
+<div class="article" id="${article[1]}">
+    <img class="article-image" src="${article[4]}" alt="Article Image">
     <div class="article-side">
         <div class="article-texts">
-            <h2 class="article-title">${article[1]}</h2>
-            <p class="article-summary">${article[2]}</p>
+            <h2 class="article-title">${article[2]}</h2>
+            <p class="article-summary">${article[3]}</p>
         </div>
         
         <div class="article-footer">
-            <a href="" target="_blank" class="article-link">Read More</a>
-            <p class="article-date">${article[0]}</p>
+            <a href="${mainPage + '/news/?article=' + article[1]}" class="article-link">Read More</a>
+            <p class="article-date">${article[1]}</p>
         </div>
     </div>
 </div>
@@ -35,6 +36,7 @@ if (document.getElementById("articles")) {
         .then(data => {
             articles = data.split("\n").map(row => row.split("\t"));
             articles.shift();
+            articles.reverse();
 
             const grouped = {};
             for (let article of articles) {
