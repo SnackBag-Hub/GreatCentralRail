@@ -75,6 +75,8 @@ if (document.getElementById("articles")) {
                     div.innerHTML = article[i];
                     article[i] = div.textContent || div.innerText;
                 }
+
+                article[5] = article[5].replace(/  +/g, '\n\n');
             }
 
             const container = document.getElementById("articles");
