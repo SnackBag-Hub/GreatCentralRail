@@ -315,6 +315,13 @@ footer {
     width: 1040px;
 }
 
+.article-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .article-popup .article-title {
     font-size: 3rem;
     color: var(--main-color);
@@ -452,6 +459,28 @@ footer {
 
     #nav-menu {
         display: unset;
+    }
+
+    .article-popup {
+        width: 97vw;
+        padding: 5px;
+    }
+
+    .article-popup .article-header {
+        flex-direction: column-reverse;
+    }
+
+    .article-popup .article-title {
+        font-size: 2rem;
+        padding-bottom: 6px;
+    }
+
+    .article-popup .article-content {
+        width: 90vw;
+    }
+
+    .article-popup .article-image {
+        height: 160px;
     }
 }
 

@@ -35,13 +35,15 @@ const articleHtml = article => `
 const articlePopupHtml = article => `
 <dialog closedby="any" class="article-popup" id="${article[1]}-popup">  
     <div class="article-content">
-        <h2 class="article-title">${article[2]}</h2>
-        
-        <img class="article-image" src="${article[4]}" alt="Article Image">
-        
-        <div class="article-subtitle">
-            <p class="article-summary">${article[3]}</p>
-            <p class="article-date">${article[0]}</p>
+        <div class="article-header">
+            <h2 class="article-title">${article[2]}</h2>
+            
+            <img class="article-image" src="${article[4]}" alt="Article Image">
+
+            <div class="article-subtitle">
+                <p class="article-summary">${article[3]}</p>
+                <p class="article-date">${article[0]}</p>
+            </div>
         </div>
         
         <p class="article-text">${article[5]}</p>
