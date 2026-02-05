@@ -69,6 +69,12 @@ if (document.getElementById("articles")) {
 
                 if (!grouped[dateStr]) grouped[dateStr] = [];
                 grouped[dateStr].push(article);
+
+                for (let i = 0; i < 5; i++) {
+                    const div = document.createElement('div');
+                    div.innerHTML = article[i];
+                    article[i] = div.textContent || div.innerText;
+                }
             }
 
             const container = document.getElementById("articles");
