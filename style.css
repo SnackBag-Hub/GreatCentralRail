@@ -281,7 +281,7 @@ footer {
 
 .article-footer {
     margin-top: 48px;
-    width: 100%;
+    width: 110%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -291,6 +291,65 @@ footer {
 .article-date {
     margin: 0;
     filter: opacity(0.55);
+}
+
+.article-popup {
+    width: 70vw;
+    height: 60vh;
+
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    background: var(--accent-color);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+
+    padding: 24px 32px;
+    border-radius: 18px;
+
+    font-family: "Outfit", serif;
+}
+
+.article-content {
+    width: 1040px;
+}
+
+.article-popup .article-title {
+    font-size: 3rem;
+    color: var(--main-color);
+    padding-bottom: 24px;
+}
+
+.article-popup .article-image {
+    width: 100%;
+    height: 400px;
+}
+
+.article-popup .article-subtitle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.article-popup .article-summary {
+    font-size: 1.2rem;
+    margin: 0 0 12px;
+    color: black;
+    filter: opacity(1);
+}
+
+.article-popup .article-text {
+    font-size: 1.2rem;
+}
+
+.article-popup:open {
+    display: flex;
+}
+
+.article-popup:focus {
+    outline: none;
 }
 
 /* Mobile */
@@ -378,6 +437,7 @@ footer {
     .article-footer {
         flex-direction: column-reverse;
         margin-top: 24px;
+        width: 100%;
     }
 
     .article-link {

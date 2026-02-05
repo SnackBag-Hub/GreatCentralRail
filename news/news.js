@@ -13,6 +13,8 @@ let articles = [];
 const script = document.currentScript;
 const limit = Number(script.dataset.limit) || 0;
 
+const urlParams = new URLSearchParams(document.location.search);
+
 const articleHtml = article => `
 <div class="article" id="${article[1]}">
     <img class="article-image" src="${article[4]}" alt="Article Image">
@@ -23,12 +25,29 @@ const articleHtml = article => `
         </div>
         
         <div class="article-footer">
-            <a href="${mainPage + '/news/?article=' + article[1]}" class="article-link">Read More</a>
-            <p class="article-date">${article[1]}</p>
+            <button onclick="showPopup('${article[1]}')" class="article-link">Read More</button>
+            <p class="article-date">${article[0]}</p>
         </div>
     </div>
 </div>
 `;
+
+const articlePopupHtml = article => `
+<dialog closedby="any" class="article-popup" id="${article[1]}-popup">  
+    <div class="article-content">
+        <h2 class="article-title">${article[2]}</h2>
+        
+        <img class="article-image" src="${article[4]}" alt="Article Image">
+        
+        <div class="article-subtitle">
+            <p class="article-summary">${article[3]}</p>
+            <p class="article-date">${article[0]}</p>
+        </div>
+        
+        <p class="article-text">${article[5]}</p>
+    </div>
+</dialog>
+`
 
 if (document.getElementById("articles")) {
     fetch(sheetsLink)
@@ -61,5 +80,22 @@ if (document.getElementById("articles")) {
                     articleCount++;
                 }
             }
+        })
+        .then(() => {
+            showPopup(urlParams.get("article"));
         });
+}
+
+function showPopup(articleId) {
+    for (let articlePopup of document.querySelectorAll(".article-popup")) articlePopup.remove();
+
+    for (let article of articles) {
+        if (article[1] === articleId) {
+            const wrapper = document.createElement("div");
+            wrapper.innerHTML = articlePopupHtml(article);
+            const dialog = wrapper.firstElementChild;
+            document.body.appendChild(dialog);
+            dialog.showModal();
+        }
+    }
 }
